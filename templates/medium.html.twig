@@ -1,0 +1,14 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <div class="center-content">
+        {{ page.content }}
+    </div>
+
+    <div id="rss-feed">
+        <h2>Recent posts</h2>
+        <ul id="rss-feed-list">
+            {{ fetchMediumRSS|raw }}
+        </ul>
+    </div>
+{% endblock %}
