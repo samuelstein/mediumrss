@@ -1,6 +1,6 @@
 name: Medium RSS Plugin
-description: Ein Plugin für Grav CMS, das den RSS-Feed von Medium abruft und die Titel und Teaser in einer Liste anzeigt.
-version: 1.0.0
+description: A plugin for Grav CMS that fetches the RSS profile page feed from Medium and displays the titles and teasers of your articles in a list.
+version: 1.1.0
 icon: medium
 author:
   name: Samuel Stein
@@ -25,7 +25,7 @@ form:
       size: large
       label: RSS Feed URL
       placeholder: 'https://medium.com/feed/@your-username'
-      help: 'Die URL des Medium RSS-Feeds, den Sie abrufen möchten.'
+      help: 'URL of Medium RSS-Feed, which you want to display'
       validate:
         type: url
 
@@ -33,8 +33,8 @@ form:
       type: select
       size: medium
       label: Link Target
-      help: 'Wählen Sie, ob die Links in einem neuen Tab oder im selben Tab geöffnet werden sollen.'
+      help: 'Choose whether the link should open in a new tab or in the same tab.'
       default: '_blank'
       options:
-        _blank: 'Neuer Tab'
-        _self: 'Gleicher Tab'
+        _blank: 'New Tab'
+        _self: 'Same Tab'
