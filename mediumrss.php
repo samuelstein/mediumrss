@@ -21,7 +21,16 @@ class MediumRssPlugin extends Plugin
 
     public function onTwigSiteVariables(Event $event)
     {
-        $this->grav['twig']->twig_vars['fetchMediumRSS'] = $this->fetchMediumRSS();
+        //only load plugin if page template is "medium"
+        $template = isset($this->grav['page']) && method_exists($this->grav['page'], 'template')
+            ? $this->grav['page']->template()
+            : '';
+
+        if ($template === 'medium') {
+            $this->grav['twig']->twig_vars['fetchMediumRSS'] = $this->fetchMediumRSS();
+        } else {
+            $this->grav['twig']->twig_vars['fetchMediumRSS'] = '';
+        }
     }
 
     private function fetchMediumRSS()
@@ -37,9 +46,8 @@ class MediumRssPlugin extends Plugin
             $description = (string) $item->description;
             $content = (string) $item->children('content', true)->encoded;
 
-            // Überprüfen, ob der Inhalt nicht leer ist
             if (!empty($content)) {
-                // Extrahiere den ersten Absatz des Inhalts
+                // extract first paragraph from content
                 preg_match('/<p>(.*?)<\/p>/', $content, $matches);
                 $firstParagraph = $matches[1] ?? '';
             } else {

@@ -19,6 +19,6 @@ rss_feed_url: 'https://medium.com/feed/@your-username'
 target: '_blank'
 ```
 ## Usage
-The plugin automatically inserts the latest Medium posts into your page. The posts are displayed using the _medium.html.twig_ template.
+The plugin automatically inserts the latest Medium posts into your page if your page template is of type __medium__. The posts are displayed using the _medium.html.twig_ template.
 
 This plugin is licensed under the MIT License
