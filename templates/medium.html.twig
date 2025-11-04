@@ -8,7 +8,11 @@
     <div id="rss-feed">
         <h2>Recent posts</h2>
         <ul id="rss-feed-list">
-            {{ fetchMediumRSS|raw }}
+            {% if fetchMediumRSS is not empty %}
+                {{ fetchMediumRSS|raw }}
+            {% else %}
+                <li style="list-style-type:none;">{{ 'PLUGIN_MEDIUMRSS.NO_POSTS'|t }}</li>
+            {% endif %}
         </ul>
     </div>
 {% endblock %}
